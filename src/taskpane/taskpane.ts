@@ -23,8 +23,8 @@ Office.onReady((info) => {
       var mode: ModeType = modeRadioInput.id === "row" ? MODE.ROW : MODE.COLUMN;
       Office.context.document.settings.set("selectedMode", mode);
       Office.context.document.settings.saveAsync();
-      // TODO: Use FACTORIALROW stored n parameter
-      const n = 10; // Example value
+      // Not sure how exactly I should to implement it. (store 'n' as I did it for 'mode'?)
+      const n = 30; // Example value
       const result = mode === MODE.ROW ? FACTORIALROW(n) : FACTORIALCOLUMN(n);
 
       await SpreadsheetService.updateWorksheet(result, mode);
