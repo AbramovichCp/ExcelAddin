@@ -21,12 +21,11 @@ export class SpreadsheetService {
         const range = sheet.getRange("A1").getResizedRange(rowCount - 1, columnCount - 1);
         range.numberFormat = result.map((row) => row.map(() => "@"));
         range.values = result;
-        range.format.autofitRows();
+        range.format.autofitColumns();
       } else if (mode === MODE.COLUMN) {
         const range = sheet.getRange("A1").getResizedRange(rowCount - 1, 0);
         range.numberFormat = result.map((row) => row.map(() => "@"));
         range.values = result;
-        await context.sync();
         range.format.autofitColumns();
       }
 
